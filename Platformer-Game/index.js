@@ -383,7 +383,6 @@ addEventListener("keydown", event => {
         case "ArrowLeft":
             footAudio.play();
             keys.left.pressed = true;
-            keys.right.pressed = false;
             player.image = player.sprites.run.left;
             player.currentCropWidth = player.sprites.run.cropWidth;
             player.width = player.sprites.run.width;
@@ -395,7 +394,6 @@ addEventListener("keydown", event => {
         case "ArrowRight":
             footAudio.play();
             keys.right.pressed = true;
-            keys.left.pressed = false;
             player.image = player.sprites.run.right;
             player.currentCropWidth = player.sprites.run.cropWidth;
             player.width = player.sprites.run.width;
@@ -415,7 +413,6 @@ addEventListener("keyup", event => {
         case "ArrowLeft":
             footAudio.play();
             keys.left.pressed = false;
-            keys.right.pressed = false;
             player.image = player.sprites.stand.left;
             player.currentCropWidth = player.sprites.stand.cropWidth;
             player.width = player.sprites.stand.width;
@@ -427,7 +424,6 @@ addEventListener("keyup", event => {
         case "ArrowRight":
             footAudio.play();
             keys.right.pressed = false;
-            keys.left.pressed = false;
             player.image = player.sprites.stand.right;
             player.currentCropWidth = player.sprites.stand.cropWidth;
             player.width = player.sprites.stand.width;
