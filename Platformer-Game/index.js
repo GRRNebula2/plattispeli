@@ -328,12 +328,18 @@ function animate() {
             if (keys.right.pressed && ScreenOffSet < 146000) {
                 ScreenOffSet += speed;
                 platform.position.x -= speed;
+                player.image = player.sprites.run.right;
+                player.currentCropWidth = player.sprites.run.cropWidth;
+                player.width = player.sprites.run.width;
                 generic0bjects.forEach(generic0bject => {
                     generic0bject.position.x -= 0.8;
                 });
             } else if (keys.left.pressed && ScreenOffSet > 10) {
                 ScreenOffSet -= speed;
                 platform.position.x += speed;
+                player.image = player.sprites.run.left;
+                player.currentCropWidth = player.sprites.run.cropWidth;
+                player.width = player.sprites.run.width;
                 generic0bjects.forEach(generic0bject => {
                     generic0bject.position.x += 0.8;
                 });
@@ -383,9 +389,6 @@ addEventListener("keydown", event => {
         case "ArrowLeft":
             footAudio.play();
             keys.left.pressed = true;
-            player.image = player.sprites.run.left;
-            player.currentCropWidth = player.sprites.run.cropWidth;
-            player.width = player.sprites.run.width;
             break;
         case "KeyS":
         case "ArrowDown":
@@ -394,9 +397,7 @@ addEventListener("keydown", event => {
         case "ArrowRight":
             footAudio.play();
             keys.right.pressed = true;
-            player.image = player.sprites.run.right;
-            player.currentCropWidth = player.sprites.run.cropWidth;
-            player.width = player.sprites.run.width;
+            
             break;
         default:
             break;
