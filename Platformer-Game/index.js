@@ -347,6 +347,17 @@ function animate() {
                     generic0bject.position.x += 0.8;
                 });
             }
+            else if (keys.up.pressed) {
+                if (player.hyppyjenMaara < 1) {
+                    jumpAudio.play();
+                    player.velocity.y = -20;
+                    player.hyppyjenMaara++;
+                }
+                else if (player.hyppyjenMaara >= 2) {
+    
+                }
+
+            }
         }
 
         // Check for collision with platforms
@@ -379,14 +390,8 @@ addEventListener("keydown", event => {
     switch (event.code) {
         case "KeyW":
         case "ArrowUp":
-            if (player.hyppyjenMaara < 1) {
-                jumpAudio.play();
-                player.velocity.y = -20;
-                player.hyppyjenMaara++;
-            }
-            else if (player.hyppyjenMaara >= 2) {
-
-            }
+            keys.up.pressed = true;
+            
             break;
         case "KeyA":
         case "ArrowLeft":
@@ -412,6 +417,7 @@ addEventListener("keyup", event => {
     switch (event.code) {
         case "KeyW":
         case "ArrowUp":
+            keys.up.pressed = false;
             break;
         case "KeyA":
         case "ArrowLeft":
