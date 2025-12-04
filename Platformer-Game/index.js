@@ -320,6 +320,16 @@ function animate() {
     platforms.forEach(platform => {
         if (keys.right.pressed && player.position.x < 400) {
             player.velocity.x = speed;
+            if (keys.right.pressed && ScreenOffSet < 146000) {
+                ScreenOffSet += speed;
+                platform.position.x -= speed;
+                player.image = player.sprites.run.right;
+                player.currentCropWidth = player.sprites.run.cropWidth;
+                player.width = player.sprites.run.width;
+                generic0bjects.forEach(generic0bject => {
+                    generic0bject.position.x -= 0.8;
+                });
+            }
         } else if (keys.left.pressed && player.position.x > 500) {
             player.velocity.x = -speed;
         } else {
