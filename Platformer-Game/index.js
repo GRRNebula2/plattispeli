@@ -25,6 +25,11 @@ var smallPlatImg = {
     altText: "Description of the image" // Alt text for accessibility
 };
 
+var leveliLapiImg = {
+    imageUrl: "/level2/level1passed.png",
+    altText: "level yks passed"
+};
+
 var runRight = {
     imageUrl: "./spriteRunRight.png", // URL of the running right sprite
     altText: "Description of the image" // Alt text for accessibility
@@ -145,6 +150,7 @@ start.play();
 var platImage = createImage(platformImg.imageUrl);
 var backImage = createImage(bgImg.imageUrl);
 var smallImage = createImage(smallPlatImg.imageUrl);
+var leveliLapiImg = createImage(leveliLapiImg.imageUrl);
 
 // Platform class definition
 class Platform {
@@ -188,6 +194,21 @@ class GenericObject {
         c.drawImage(this.image, this.position.x, this.position.y);
     }
 }
+
+class leveliLapi {
+    constructor(x, y, image) {
+        this.position = { x: x, y: y };
+        this.width = image.width;
+        this.height = image.height;
+        this.image = image;
+    }
+
+    // Draw the small platform on the canvas
+    draw() {
+        c.drawImage(this.image, this.position.x, this.position.y);
+    }
+}
+
 
 // Initialize the player and platforms
 let player = new Player();
@@ -362,6 +383,7 @@ addEventListener("keydown", event => {
         case "ArrowLeft":
             footAudio.play();
             keys.left.pressed = true;
+            keys.right.pressed = false;
             player.image = player.sprites.run.left;
             player.currentCropWidth = player.sprites.run.cropWidth;
             player.width = player.sprites.run.width;
@@ -373,6 +395,7 @@ addEventListener("keydown", event => {
         case "ArrowRight":
             footAudio.play();
             keys.right.pressed = true;
+            keys.left.pressed = false;
             player.image = player.sprites.run.right;
             player.currentCropWidth = player.sprites.run.cropWidth;
             player.width = player.sprites.run.width;
@@ -392,6 +415,7 @@ addEventListener("keyup", event => {
         case "ArrowLeft":
             footAudio.play();
             keys.left.pressed = false;
+            keys.right.pressed = false;
             player.image = player.sprites.stand.left;
             player.currentCropWidth = player.sprites.stand.cropWidth;
             player.width = player.sprites.stand.width;
@@ -403,6 +427,7 @@ addEventListener("keyup", event => {
         case "ArrowRight":
             footAudio.play();
             keys.right.pressed = false;
+            keys.left.pressed = false;
             player.image = player.sprites.stand.right;
             player.currentCropWidth = player.sprites.stand.cropWidth;
             player.width = player.sprites.stand.width;
