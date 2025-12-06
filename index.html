@@ -1,17 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mario</title>
-    <link rel="stylesheet" href="./index.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
     <audio id="start" src="./v_ai2_unique01 (#1).wav"></audio>
     <audio id="uniqueAudio" src="./v_ai2_unique01 (#1).wav"></audio>
     <audio id="footAudio" src="./ai2_foot.wav"></audio>
     <audio id="jumpAudio" src="./ai2_jump_high.wav"></audio>
+
+    <!-- Congratulation overlay -->
+    <div id="congratsOverlay">
+      <div class="congrats-content">
+        <div class="congrats-title">🎉✨ AMAZING! ✨🎉</div>
+        <div class="congrats-message" id="congratsMessage">
+          Level 1 Complete!
+        </div>
+        <div class="congrats-subtitle">🌟 You're doing great! 🌟</div>
+        <div class="congrats-praise">Keep up the fantastic work! 💫</div>
+        <div class="congrats-instruction">
+          Press any key to continue your adventure... 🚀
+        </div>
+      </div>
+    </div>
+
     <canvas></canvas>
     <script src="./index.js" type="module"></script>
-</body>
+  </body>
 </html>
