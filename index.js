@@ -1,3 +1,9 @@
+/*
+1. Hypyn korjaus
+rajalliset elämät
+lisäelämä ylemmältä tasolta
+ */
+
 // Select the canvas element and set its dimensions
 var canvas = document.querySelector("canvas");
 canvas.width = 1024;
@@ -347,13 +353,14 @@ function animate() {
                     generic0bject.position.x += 0.8;
                 });
             }
-            else if (keys.up.pressed) {
+            if (keys.up.pressed) {
                 if (player.hyppyjenMaara < 1) {
                     jumpAudio.play();
                     player.velocity.y = -20;
                     player.hyppyjenMaara++;
                 }
-                else if (player.hyppyjenMaara >= 2) {
+                //jos hyppyjä on enemmän kuin 0, ei hyppyä tapahdu
+                else /*if (player.hyppyjenMaara >= 1)*/ {
     
                 }
 
