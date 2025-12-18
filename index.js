@@ -36,6 +36,11 @@ var leveliLapiImg = {
     altText: "level yks passed"
 };
 
+var sydanImg = {
+    imageUrl: "./sydan.png",
+    altText: "Description of the image"
+}
+
 var runRight = {
     imageUrl: "./spriteRunRight.png", // URL of the running right sprite
     altText: "Description of the image" // Alt text for accessibility
@@ -61,6 +66,8 @@ var hillImg = {
     altText: "Description of the image" // Alt text for accessibility
 };
 
+
+
 // Get the start button and audio elements from the DOM
 var start = document.getElementById("start");
 var footAudio = document.getElementById("footAudio");
@@ -73,6 +80,7 @@ class Player {
         this.position = { x: 100, y: 100 };
         this.velocity = { x: 0, y: 40 };
         this.hypyt ={hyppyjenMaara: 0 }
+        this.elamat = {elamienMaara: 3}
 
         // Define player dimensions
         this.width = 65;
@@ -156,7 +164,8 @@ start.play();
 var platImage = createImage(platformImg.imageUrl);
 var backImage = createImage(bgImg.imageUrl);
 var smallImage = createImage(smallPlatImg.imageUrl);
-var leveliLapiImg = createImage(leveliLapiImg.imageUrl);
+var leveliLapiImage = createImage(leveliLapiImg.imageUrl);
+var sydanImage = createImage(sydanImg.imageUrl);
 
 // Platform class definition
 class Platform {
@@ -378,6 +387,10 @@ function animate() {
             player.hyppyjenMaara = 0;
         }
     });
+
+    if (player.position.y > (canvas.heigth - 2)) {
+        player.elamat -= 1;
+    }
 
     // Restart the game if the player falls off the screen
     if (player.position.y > canvas.height) {
