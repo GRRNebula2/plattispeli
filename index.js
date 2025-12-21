@@ -210,6 +210,20 @@ class GenericObject {
     }
 }
 
+class Sydan {
+    constructor(x, y, image) {
+        this.position = { x: x, y: y };
+        this.width = image.width;
+        this.height = image.height;
+        this.image = image;
+    }
+
+    // Draw the generic object on the canvas
+    draw() {
+        c.drawImage(this.image, this.position.x, this.position.y);
+    }
+}
+
 class leveliLapi {
     constructor(x, y, image) {
         this.position = { x: x, y: y };
@@ -263,6 +277,7 @@ function init() {
 
     platImage = createImage(platformImg.imageUrl);
     backImage = createImage(bgImg.imageUrl);
+    sydanImage = createImage(sydanImg.imageUrl);
 
     player = new Player();
     platforms = [];
