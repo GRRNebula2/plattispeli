@@ -419,7 +419,7 @@ function animate() {
     });
 
     if (player.position.y > (canvas.heigth - 2)) {
-        player.elamat -= 1;
+        player.elamat.elamienMaara -= 1;
     }
 
 
@@ -429,7 +429,7 @@ function animate() {
         init();
     }
 
-    for (let i = 0; i<player.elamat; i++)
+    for (let i = 0; i<player.elamat.elamienMaara; i++)
     {
        sydamet[i].draw();
     }
