@@ -271,16 +271,29 @@ let generic0bjects = [
     new GenericObject(-1, -1, createImage(hillImg.imageUrl))
 ];
 
+sydanImage = createImage(sydanImg.imageUrl);
+
+var sydan = new Sydan(100, 100, sydanImage);
+
+var sydan1 = new Sydan(150, 100, sydanImage);
+
+var sydan2 = new Sydan(200, 100, sydanImage);
+
+const sydamet = [sydan, sydan1, sydan2];
+
+
+
 // Initialize function to set up the game state
 function init() {
     start.play();
 
     platImage = createImage(platformImg.imageUrl);
     backImage = createImage(bgImg.imageUrl);
-    sydanImage = createImage(sydanImg.imageUrl);
+    
 
     player = new Player();
     platforms = [];
+
 
     // Add platforms to the platforms array
     for (let i = 0; i < 3; i++) {
@@ -323,6 +336,8 @@ function init() {
         new GenericObject(-1, -1, backImage),
         new GenericObject(-1, -1, createImage(hillImg.imageUrl))
     ];
+
+ 
 }
 
 // Define the speed of the player
@@ -346,6 +361,7 @@ function animate() {
 
     player.update();
 
+    
     // Handle player movement and collision detection
     platforms.forEach(platform => {
         if (keys.right.pressed && player.position.x < 400) {
@@ -390,7 +406,6 @@ function animate() {
 
             }
         }
-
         // Check for collision with platforms
         if (
             player.position.y + player.height <= platform.position.y &&
@@ -407,18 +422,19 @@ function animate() {
         player.elamat -= 1;
     }
 
+
     // Restart the game if the player falls off the screen
     if (player.position.y > canvas.height) {
         console.log("lose");
         init();
     }
 
-    
-
+    for (let i = 0; i<player.elamat; i++)
+    {
+       sydamet[i].draw();
+    }
 
 }
-
-animate();
 
 // Event listener for keydown events
 addEventListener("keydown", event => {
@@ -479,3 +495,5 @@ addEventListener("keyup", event => {
 });
 
 init();
+
+animate();
