@@ -73,6 +73,8 @@ var start = document.getElementById("start");
 var footAudio = document.getElementById("footAudio");
 var jumpAudio = document.getElementById("jumpAudio");
 
+let elamat = 4;
+
 // Player class definition
 class Player {
     constructor() {
@@ -80,7 +82,7 @@ class Player {
         this.position = { x: 100, y: 100 };
         this.velocity = { x: 0, y: 40 };
         this.hypyt ={hyppyjenMaara: 0 }
-        this.elamat = {elamienMaara: 3}
+        
 
         // Define player dimensions
         this.width = 65;
@@ -418,18 +420,19 @@ function animate() {
         }
     });
 
-    if (player.position.y > (canvas.heigth - 2)) {
-        player.elamat.elamienMaara -= 1;
-    }
+    //if (player.position.y > (canvas.heigth - 2)) {
+      //  elamat -= 1;
+    //}
 
 
     // Restart the game if the player falls off the screen
     if (player.position.y > canvas.height) {
         console.log("lose");
+        elamat -= 1;
         init();
     }
 
-    for (let i = 0; i<player.elamat.elamienMaara; i++)
+    for (let i = 0; i<elamat; i++)
     {
        sydamet[i].draw();
     }
