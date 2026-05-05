@@ -283,6 +283,8 @@ var sydan2 = new Sydan(200, 100, sydanImage);
 
 const sydamet = [sydan, sydan1, sydan2];
 
+var sydanTasolla = new Sydan(600, 260, sydanImage);
+
 
 
 // Initialize function to set up the game state
@@ -361,6 +363,8 @@ function animate() {
         platform.draw();
     });
 
+    //sydanTasolla.draw();
+
     player.update();
 
     
@@ -424,7 +428,8 @@ function animate() {
       //  elamat -= 1;
     //}
 
-
+    //sydanTasolla.draw();
+    
     // Restart the game if the player falls off the screen
     if (player.position.y > canvas.height) {
         console.log("lose");
